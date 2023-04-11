@@ -19,6 +19,7 @@
 		2421275129E5883E006BBF8E /* PokemonImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421274D29E5883E006BBF8E /* PokemonImageEntity.swift */; };
 		2421275229E5883E006BBF8E /* PokemonTypesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421274E29E5883E006BBF8E /* PokemonTypesEntity.swift */; };
 		2421275329E5883E006BBF8E /* PokemonEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421274F29E5883E006BBF8E /* PokemonEntity.swift */; };
+		2421275729E59434006BBF8E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421275629E59434006BBF8E /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		2421274D29E5883E006BBF8E /* PokemonImageEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonImageEntity.swift; sourceTree = "<group>"; };
 		2421274E29E5883E006BBF8E /* PokemonTypesEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTypesEntity.swift; sourceTree = "<group>"; };
 		2421274F29E5883E006BBF8E /* PokemonEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonEntity.swift; sourceTree = "<group>"; };
+		2421275629E59434006BBF8E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,8 @@
 		2421271C29E44D84006BBF8E /* PokemonDexWithSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				2421275E29E597FD006BBF8E /* Domain */,
+				2421275929E59452006BBF8E /* Presentaion */,
 				2421274729E58806006BBF8E /* Data */,
 				2421271D29E44D84006BBF8E /* PokemonDexWithSwiftUIApp.swift */,
 				2421271F29E44D84006BBF8E /* ContentView.swift */,
@@ -164,6 +168,69 @@
 				2421274F29E5883E006BBF8E /* PokemonEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		2421275429E59418006BBF8E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2421275629E59434006BBF8E /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2421275829E5943F006BBF8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2421275929E59452006BBF8E /* Presentaion */ = {
+			isa = PBXGroup;
+			children = (
+				2421275B29E597E2006BBF8E /* Detail */,
+				2421275A29E59477006BBF8E /* Home */,
+			);
+			path = Presentaion;
+			sourceTree = "<group>";
+		};
+		2421275A29E59477006BBF8E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2421275429E59418006BBF8E /* ViewModel */,
+				2421275829E5943F006BBF8E /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2421275B29E597E2006BBF8E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2421275D29E597F1006BBF8E /* ViewModel */,
+				2421275C29E597EB006BBF8E /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		2421275C29E597EB006BBF8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2421275D29E597F1006BBF8E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2421275E29E597FD006BBF8E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +366,7 @@
 				2421275129E5883E006BBF8E /* PokemonImageEntity.swift in Sources */,
 				2421272029E44D84006BBF8E /* ContentView.swift in Sources */,
 				2421275229E5883E006BBF8E /* PokemonTypesEntity.swift in Sources */,
+				2421275729E59434006BBF8E /* HomeViewModel.swift in Sources */,
 				2421275329E5883E006BBF8E /* PokemonEntity.swift in Sources */,
 				2421274A29E5882A006BBF8E /* PokemonDataSource.swift in Sources */,
 				2421275029E5883E006BBF8E /* PokemonTypeEntity.swift in Sources */,
