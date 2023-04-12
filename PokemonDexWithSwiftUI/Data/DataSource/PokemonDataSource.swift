@@ -33,7 +33,7 @@ protocol PokemonDataSourceProtocol {
 }
 
 
-final class PokemonDataSource {
+final class PokemonDataSource: PokemonDataSourceProtocol {
 
     //MARK: - Error
     enum Error: Swift.Error {
