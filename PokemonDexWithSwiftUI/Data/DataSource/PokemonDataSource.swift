@@ -29,6 +29,7 @@ struct PokemonId {
 
 protocol PokemonDataSourceProtocol {
     func fetchPokemonList(from startId: PokemonId, to endId: PokemonId) async throws -> [PokemonEntity]
+    func fetchPokemon(id: PokemonId) async throws -> PokemonEntity
 }
 
 
