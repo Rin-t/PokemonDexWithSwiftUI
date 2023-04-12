@@ -155,17 +155,17 @@
 			children = (
 				2421276129E59AF1006BBF8E /* Repository */,
 				2421274B29E5883E006BBF8E /* Entity */,
-				2421274829E58815006BBF8E /* DataStore */,
+				2421274829E58815006BBF8E /* DataSource */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		2421274829E58815006BBF8E /* DataStore */ = {
+		2421274829E58815006BBF8E /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
 				2421274929E5882A006BBF8E /* PokemonDataSource.swift */,
 			);
-			path = DataStore;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		2421274B29E5883E006BBF8E /* Entity */ = {

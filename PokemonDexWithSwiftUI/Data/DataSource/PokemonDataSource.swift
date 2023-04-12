@@ -7,45 +7,48 @@
 
 import Foundation
 
-struct SearchPokemonId {
-    private let minimumSearchId = 1
-    private let maximumSearchId = 151
-    let startId: Int
-    let endId: Int
+struct PokemonId {
+    private let minimumId = 1
+    private let maximumId = 151
 
-    init(startId: Int, endId: Int) {
-        self.startId = startId
-        self.endId = endId
+    let value: Int
 
-        if startId < minimumSearchId {
+    init(value: Int) {
+
+        if minimumId <= value {
             fatalError("startIdは1以上の値を入力すること")
         }
 
-        if endId > maximumSearchId {
+        if value <= maximumId {
             fatalError("endIdは151よりも小さい値を入力すること")
         }
 
-        if startId > endId {
-            fatalError("startIdよりもendId以上に設定すること")
-        }
+        self.value = value
     }
+}
+
+protocol PokemonDataSourceProtocol {
+    func fetchPokemonList(from startId: PokemonId, to endId: PokemonId) async throws -> [PokemonEntity]
 }
 
 
 final class PokemonDataSource {
 
+    //MARK: - Error
     enum Error: Swift.Error {
         case failToFetchData
         case failToCreateUrl
     }
 
+    //MARK: - EndPoint
     private let endPoint = "https://pokeapi.co/api/v2/pokemon/"
 
 
-    func fetchPokemons(from startId: Int, to endId: Int) async throws -> [PokemonEntity] {
+    //MARK: - Methods
+    func fetchPokemonList(from startId: PokemonId, to endId: PokemonId) async throws -> [PokemonEntity] {
         do {
-            let urls = createUrls(from: startId, to: endId)
-            var pokemons: [PokemonEntity] = []
+            let urls = createUrls(from: startId.value, to: endId.value)
+            var pokemonArray: [PokemonEntity] = []
 
             try await withThrowingTaskGroup(of: PokemonEntity.self) { group in
                 for url in urls {
@@ -55,18 +58,18 @@ final class PokemonDataSource {
                 }
 
                 for try await pokemon in group {
-                    pokemons.append(pokemon)
+                    pokemonArray.append(pokemon)
                 }
             }
-            return pokemons
+            return pokemonArray
         } catch {
             throw Error.failToFetchData
         }
     }
 
-    func fetchPokemon(id: Int) async throws -> PokemonEntity {
+    func fetchPokemon(id: PokemonId) async throws -> PokemonEntity {
         do {
-            let url = createUrl(id: id)
+            let url = createUrl(id: id.value)
             let pokemon = try await fetchData(from: url)
             return pokemon
         } catch {
