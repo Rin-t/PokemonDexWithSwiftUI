@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// 使い回しを考えるなら型として持つべきか。
 private let cellSpacing: CGFloat = 16.0
 private let cellNumberInColumn: CGFloat = 2
 private let spacingNumber: CGFloat = cellNumberInColumn + 1
@@ -16,42 +17,30 @@ struct ContentView: View {
     let columns = [GridItem(.flexible(), spacing: cellSpacing)
                    ,GridItem(.flexible())]
 
+    #warning("ViewModelTypeにしてDIしたかった。")
+    @ObservedObject var viewModel = HomeViewModel()
+
     var body: some View {
         GeometryReader { geometry in
             let cellWidth = (geometry.size.width - spacingTotal) / cellNumberInColumn
 
             ScrollView() {
                 LazyVGrid(columns: columns, spacing: cellSpacing) {
-                    ForEach((1...50), id: \.self) { num in
-                        Text("\(num)")
-                            .padding()
-                            .frame(width: cellWidth, height: cellWidth)
-                            .background(
-                                ZStack {
-                                    Circle()
-                                        .fill(Color.red)
-                                        .frame(height: cellWidth)
-                                    Rectangle()
-                                        .fill(Color.white)
-                                        .frame(height: cellWidth / 2)
-                                        .offset(y: cellWidth / 4)
-                                }
-                            )
-                            .clipShape(Circle())
-                            .overlay(
-                                Circle()
-                                    .stroke(Color.black, lineWidth: 1)
-                            )
+                    ForEach(0..<viewModel.pokemons.count, id: \.self) { index in
+                        MonsterBallView(cellWidth: cellWidth, pokemon: $viewModel.pokemons[index])
                     }
                 }
                 .padding(.horizontal, cellSpacing)
             }
+        }
+        .onAppear {
+            viewModel.onAppear()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: HomeViewModel())
     }
 }
