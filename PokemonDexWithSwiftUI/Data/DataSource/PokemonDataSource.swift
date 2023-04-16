@@ -15,12 +15,8 @@ struct PokemonId {
 
     init(value: Int) {
 
-        if minimumId <= value {
-            fatalError("startIdは1以上の値を入力すること")
-        }
-
-        if value <= maximumId {
-            fatalError("endIdは151よりも小さい値を入力すること")
+        if value < minimumId || maximumId < value {
+            fatalError("startIdは1~151の値を入力すること")
         }
 
         self.value = value
