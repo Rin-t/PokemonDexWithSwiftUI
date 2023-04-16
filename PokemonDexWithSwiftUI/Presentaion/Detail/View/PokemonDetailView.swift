@@ -26,7 +26,7 @@ struct PokemonDetailView: View {
 
             Text(pokemon.name)
                 .font(.system(size: 24, weight: .bold, design: .rounded))
-            
+
             Spacer()
         }
     }
