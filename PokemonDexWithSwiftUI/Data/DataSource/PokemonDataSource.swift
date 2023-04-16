@@ -58,7 +58,7 @@ final class PokemonDataSource: PokemonDataSourceProtocol {
                     pokemonArray.append(pokemon)
                 }
             }
-            return pokemonArray
+            return pokemonArray.sorted { $0.id < $1.id }
         } catch {
             throw Error.failToFetchData
         }
