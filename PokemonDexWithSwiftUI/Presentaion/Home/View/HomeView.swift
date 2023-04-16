@@ -23,7 +23,7 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geometry in
             let cellWidth = (geometry.size.width - spacingTotal) / cellNumberInColumn
-            NavigationView {
+            NavigationStack {
                 ScrollView() {
                     LazyVGrid(columns: columns, spacing: cellSpacing) {
                         ForEach(0..<viewModel.pokemons.count, id: \.self) { index in
