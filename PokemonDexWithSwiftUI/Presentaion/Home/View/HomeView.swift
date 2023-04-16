@@ -23,14 +23,19 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geometry in
             let cellWidth = (geometry.size.width - spacingTotal) / cellNumberInColumn
-
-            ScrollView() {
-                LazyVGrid(columns: columns, spacing: cellSpacing) {
-                    ForEach(0..<viewModel.pokemons.count, id: \.self) { index in
-                        MonsterBallView(cellWidth: cellWidth, pokemon: viewModel.pokemons[index])
+            NavigationView {
+                ScrollView() {
+                    LazyVGrid(columns: columns, spacing: cellSpacing) {
+                        ForEach(0..<viewModel.pokemons.count, id: \.self) { index in
+                            let pokemon = viewModel.pokemons[index]
+                            NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
+                                MonsterBallView(cellWidth: cellWidth, pokemon: pokemon)
+                            }
+                        }
                     }
+                    .padding(.horizontal, cellSpacing)
                 }
-                .padding(.horizontal, cellSpacing)
+                .navigationTitle("初代ポケモン一覧")
             }
         }
         .onAppear {
