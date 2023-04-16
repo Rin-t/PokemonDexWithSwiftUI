@@ -51,8 +51,8 @@ final class HomeViewModel: ObservableObject, HomeViewModelInput, HomeViewModelOu
     }
 
     func tappeGrid(index: Int) {
-        pokemon = pokemons[index]
-        
+        pokemon = pokemons[safe: index]
+
         guard let _ = pokemon else {
             print("poekemonがnil")
             return
