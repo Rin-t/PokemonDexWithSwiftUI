@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-#warning("ViewModelTypeをContentViewのpropertyで持とうとしたらできなかった")
+#warning("ViewModelTypeをHomeViewのpropertyで持とうとしたらできなかった")
 protocol HomeViewModelInput {
     func onAppear()
     func tappeGrid(index: Int)

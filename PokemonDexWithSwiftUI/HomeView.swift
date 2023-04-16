@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  PokemonDexWithSwiftUI
 //
 //  Created by Rin on 2023/04/10.
@@ -13,7 +13,7 @@ private let cellNumberInColumn: CGFloat = 2
 private let spacingNumber: CGFloat = cellNumberInColumn + 1
 private let spacingTotal = cellSpacing * spacingNumber
 
-struct ContentView: View {
+struct HomeView: View {
     let columns = [GridItem(.flexible(), spacing: cellSpacing)
                    ,GridItem(.flexible())]
 
@@ -39,8 +39,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: HomeViewModel())
+        HomeView(viewModel: HomeViewModel())
     }
 }
