@@ -26,7 +26,7 @@ struct MonsterBallView: View {
                 .background(
                     ZStack {
                         Circle()
-                            .fill(Color.red)
+                            .fill(Color(red: 1, green: 0.6, blue: 0.6))
                             .frame(height: cellWidth)
                         Rectangle()
                             .fill(Color.white)
