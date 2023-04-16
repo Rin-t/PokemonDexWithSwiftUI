@@ -27,7 +27,7 @@ struct HomeView: View {
             ScrollView() {
                 LazyVGrid(columns: columns, spacing: cellSpacing) {
                     ForEach(0..<viewModel.pokemons.count, id: \.self) { index in
-                        MonsterBallView(cellWidth: cellWidth, pokemon: $viewModel.pokemons[index])
+                        MonsterBallView(cellWidth: cellWidth, pokemon: viewModel.pokemons[index])
                     }
                 }
                 .padding(.horizontal, cellSpacing)

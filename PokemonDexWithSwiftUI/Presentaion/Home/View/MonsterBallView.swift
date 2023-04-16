@@ -10,11 +10,11 @@ import SwiftUI
 struct MonsterBallView: View {
 
     private let cellWidth: CGFloat
-    @Binding var pokemon: PokemonModel
+    private let pokemon: PokemonModel
 
-    init(cellWidth: CGFloat, pokemon: Binding<PokemonModel>) {
+    init(cellWidth: CGFloat, pokemon: PokemonModel) {
         self.cellWidth = cellWidth
-        self._pokemon = pokemon
+        self.pokemon = pokemon
     }
 
     var body: some View {
@@ -62,22 +62,15 @@ struct MonsterBallView: View {
 
 struct MonsterBallView_Previews: PreviewProvider {
 
-    static var previews: some View {
-        MonsterBallViewWrapper()
-    }
-}
-
-struct MonsterBallViewWrapper: View {
     static let frontImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
     static let shinyImage = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png"
-    @State private var pokemon = PokemonModel(name: "pikachu",
+    static let pokemon = PokemonModel(name: "pikachu",
                                               id: 25,
                                               frontImage: frontImage,
                                               shinyImage: shinyImage,
                                               type1: .electric,
                                               type2: nil)
-
-    var body: some View {
-        MonsterBallView(cellWidth: 180, pokemon: $pokemon)
+    static var previews: some View {
+        MonsterBallView(cellWidth: 200, pokemon: pokemon)
     }
 }
