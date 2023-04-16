@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// 使い回しを考えるなら型として持つべきか。
+// 型として定義して使いまわせるようにしたい。
 private let cellSpacing: CGFloat = 16.0
 private let cellNumberInColumn: CGFloat = 2
 private let spacingNumber: CGFloat = cellNumberInColumn + 1
