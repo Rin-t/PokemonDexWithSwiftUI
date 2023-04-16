@@ -43,6 +43,7 @@ struct MonsterBallView: View {
             VStack(spacing: 0) {
                 // idの表示
                 Text("No. " + String(pokemon.id))
+                    .foregroundColor(.black)
 
                 // 画像の表示
                 let url = URL(string: pokemon.frontImage)!
@@ -55,6 +56,7 @@ struct MonsterBallView: View {
 
                 // 名前の表示
                 Text(pokemon.name)
+                    .foregroundColor(.black)
             }
         }
     }
