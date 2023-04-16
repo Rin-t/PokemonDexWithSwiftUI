@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+#warning("ViewModelTypeをContentViewのpropertyで持とうとしたらできなかった")
 protocol HomeViewModelInput {
     func onAppear()
     func tappeGrid(index: Int)
@@ -20,7 +21,7 @@ protocol HomeViewModelOutput {
     var pokemons: [PokemonModel] { get }
 }
 
-protocol HomeViewModelType {
+protocol HomeViewModelType: ObservableObject {
     var input: HomeViewModelInput { get }
     var output: HomeViewModelOutput { get }
 }
