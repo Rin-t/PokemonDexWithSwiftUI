@@ -39,6 +39,7 @@ final class HomeViewModel: ObservableObject, HomeViewModelInput, HomeViewModelOu
         self.useCase = useCase
     }
 
+    @MainActor
     func onAppear() {
         Task {
             do {
