@@ -34,7 +34,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal, cellSpacing)
                 }
-                .navigationTitle("初代ポケモン一覧")
+                .navigationTitle("Pokemon Dex")
             }
         }
         .onAppear {
