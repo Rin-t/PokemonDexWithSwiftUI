@@ -28,7 +28,6 @@ protocol HomeViewModelType: ObservableObject {
 
 final class HomeViewModel: ObservableObject, HomeViewModelInput, HomeViewModelOutput {
 
-    @Published var isPresentDetailVC: Bool = false
     @Published var isShowingFailToPokemonAlert: Bool = false
     @Published var pokemons: [PokemonModel] = []
     @Published var pokemon: PokemonModel?
@@ -50,16 +49,6 @@ final class HomeViewModel: ObservableObject, HomeViewModelInput, HomeViewModelOu
                 isShowingFailToPokemonAlert = true
             }
         }
-    }
-
-    func tappeGrid(index: Int) {
-        pokemon = pokemons[safe: index]
-
-        guard let _ = pokemon else {
-            print("poekemonがnil")
-            return
-        }
-        isPresentDetailVC = true
     }
 }
 
