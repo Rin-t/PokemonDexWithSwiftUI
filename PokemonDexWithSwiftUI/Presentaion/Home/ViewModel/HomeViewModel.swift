@@ -8,23 +8,7 @@
 import Foundation
 import SwiftUI
 
-#warning("ViewModelTypeをHomeViewのpropertyで持とうとしたらできなかった")
-protocol HomeViewModelInput {
-    func onAppear()
-}
-
-protocol HomeViewModelOutput {
-    var isAlertShowing: Bool { get }
-    var pokemon: PokemonModel? { get }
-    var pokemons: [PokemonModel] { get }
-}
-
-protocol HomeViewModelType: ObservableObject {
-    var input: HomeViewModelInput { get }
-    var output: HomeViewModelOutput { get }
-}
-
-final class HomeViewModel: ObservableObject, HomeViewModelInput, HomeViewModelOutput {
+final class HomeViewModel: ObservableObject {
 
     @Published var isAlertShowing: Bool = false
     @Published var pokemons: [PokemonModel] = []
@@ -64,11 +48,4 @@ final class HomeViewModel: ObservableObject, HomeViewModelInput, HomeViewModelOu
             }
         }
     }
-}
-
-
-extension HomeViewModel: HomeViewModelType {
-
-    var input: HomeViewModelInput { return self }
-    var output: HomeViewModelOutput { return self }
 }
