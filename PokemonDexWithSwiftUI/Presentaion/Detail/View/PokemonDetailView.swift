@@ -8,24 +8,53 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
-    var pokemon: PokemonModel
+    @ObservedObject var viewModel: PokemonDetailViewModel
+
+    init(pokemon: PokemonModel) {
+        self.viewModel = PokemonDetailViewModel(pokemon: pokemon)
+    }
 
     var body: some View {
         VStack {
             Spacer()
-            Text("No. " + String(pokemon.id))
+            Spacer()
+
+            Text("No. " + String(viewModel.pokemon.id))
                 .font(.system(size: 24, weight: .bold, design: .rounded))
 
-            let url = URL(string: pokemon.frontImage)!
-            AsyncImage(url: url) { image in
+            AsyncImage(url: viewModel.selectedImageUrl) { image in
                 image.resizable()
             } placeholder: {
                 ProgressView()
             }
             .frame(width: 240, height: 240)
 
-            Text(pokemon.name)
+            Text(viewModel.pokemon.name)
                 .font(.system(size: 24, weight: .bold, design: .rounded))
+
+            Spacer()
+
+            HStack(spacing: 36) {
+                Button(action: {
+                    viewModel.tappedNormalButton()
+                }) {
+                    Text("normal")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Capsule().fill(Color.cyan))
+                }
+
+                Button(action: {
+                    viewModel.tappedShinyButton()
+                }) {
+                    Text("shiny")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Capsule().fill(Color.cyan))
+                }
+            }
 
             Spacer()
         }
