@@ -28,6 +28,7 @@
 		2421276E29EBB444006BBF8E /* MonsterBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421276D29EBB444006BBF8E /* MonsterBallView.swift */; };
 		242127AC29EC1345006BBF8E /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242127AB29EC1345006BBF8E /* PokemonDetailView.swift */; };
 		242127AF29ED6E74006BBF8E /* AlertContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242127AE29ED6E74006BBF8E /* AlertContent.swift */; };
+		242127B129ED7CD6006BBF8E /* PoekemonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242127B029ED7CD6006BBF8E /* PoekemonDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		242127AA29EC1254006BBF8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		242127AB29EC1345006BBF8E /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 		242127AE29ED6E74006BBF8E /* AlertContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContent.swift; sourceTree = "<group>"; };
+		242127B029ED7CD6006BBF8E /* PoekemonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoekemonDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 		2421275D29E597F1006BBF8E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				242127B029ED7CD6006BBF8E /* PoekemonDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				242127AC29EC1345006BBF8E /* PokemonDetailView.swift in Sources */,
 				2421275029E5883E006BBF8E /* PokemonTypeEntity.swift in Sources */,
 				2421276E29EBB444006BBF8E /* MonsterBallView.swift in Sources */,
+				242127B129ED7CD6006BBF8E /* PoekemonDetailViewModel.swift in Sources */,
 				2421271E29E44D84006BBF8E /* PokemonDexWithSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
