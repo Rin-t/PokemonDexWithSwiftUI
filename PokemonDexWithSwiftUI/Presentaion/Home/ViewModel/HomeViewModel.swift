@@ -11,11 +11,9 @@ import SwiftUI
 #warning("ViewModelTypeをHomeViewのpropertyで持とうとしたらできなかった")
 protocol HomeViewModelInput {
     func onAppear()
-    func tappeGrid(index: Int)
 }
 
 protocol HomeViewModelOutput {
-    var isPresentDetailVC: Bool { get }
     var isShowingFailToPokemonAlert: Bool { get }
     var pokemon: PokemonModel? { get }
     var pokemons: [PokemonModel] { get }
