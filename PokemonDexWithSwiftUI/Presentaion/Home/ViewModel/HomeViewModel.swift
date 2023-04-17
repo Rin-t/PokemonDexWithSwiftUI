@@ -14,7 +14,7 @@ protocol HomeViewModelInput {
 }
 
 protocol HomeViewModelOutput {
-    var isShowingFailToPokemonAlert: Bool { get }
+    var isAlertShowing: Bool { get }
     var pokemon: PokemonModel? { get }
     var pokemons: [PokemonModel] { get }
 }
@@ -26,9 +26,10 @@ protocol HomeViewModelType: ObservableObject {
 
 final class HomeViewModel: ObservableObject, HomeViewModelInput, HomeViewModelOutput {
 
-    @Published var isShowingFailToPokemonAlert: Bool = false
+    @Published var isAlertShowing: Bool = false
     @Published var pokemons: [PokemonModel] = []
     @Published var pokemon: PokemonModel?
+    @Published var alertContent = AlertContent(title: "", message: "", actionText: "")
 
     private let useCase: PokemonUseCaseProtocol
 
@@ -43,8 +44,23 @@ final class HomeViewModel: ObservableObject, HomeViewModelInput, HomeViewModelOu
                 let startSearchId = PokemonId(value: 1)
                 let endSearchId = PokemonId(value: 151)
                 pokemons = try await useCase.fetchPokemonList(from: startSearchId, to: endSearchId)
+            } catch let error as PokemonDataSource.Error {
+                let title: String
+                switch error {
+                case .failToCreateUrl:
+                    title = "URLが正しくありません"
+                case .failToFetchData:
+                    title = "データの取得に失敗しました"
+                }
+                alertContent = AlertContent(title: title,
+                                            message: "",
+                                            actionText: "OK")
+                isAlertShowing = true
             } catch {
-                isShowingFailToPokemonAlert = true
+                alertContent = AlertContent(title: "不明なエラーです",
+                                            message: "",
+                                            actionText: "OK")
+                isAlertShowing = true
             }
         }
     }
