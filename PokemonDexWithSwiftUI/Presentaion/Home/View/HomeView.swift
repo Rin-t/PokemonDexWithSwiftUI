@@ -41,6 +41,15 @@ struct HomeView: View {
         .onAppear {
             viewModel.onAppear()
         }
+        .alert(
+            viewModel.alertContent.title,
+            isPresented: $viewModel.isAlertShowing,
+            presenting: viewModel.alertContent
+        ) { content in
+            Button(content.actionText) { }
+        } message: { content in
+            Text(content.message)
+        }
     }
 }
 
