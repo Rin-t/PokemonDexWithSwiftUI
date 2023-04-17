@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// 型として定義して使いまわせるようにしたい。
+#warning("型として定義して使いまわせるようにしたいできるか？")
 private let cellSpacing: CGFloat = 16.0
 private let cellNumberInColumn: CGFloat = 2
 private let spacingNumber: CGFloat = cellNumberInColumn + 1
@@ -17,7 +17,6 @@ struct HomeView: View {
     let columns = [GridItem(.flexible(), spacing: cellSpacing)
                    ,GridItem(.flexible())]
 
-    #warning("ViewModelTypeにしてDIしたかった。")
     @ObservedObject var viewModel = HomeViewModel()
 
     var body: some View {
