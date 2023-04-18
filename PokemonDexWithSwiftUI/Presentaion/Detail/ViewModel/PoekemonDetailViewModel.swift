@@ -24,4 +24,8 @@ final class PokemonDetailViewModel: ObservableObject {
     func tappedShinyButton() {
         selectedImageUrl = URL(string: pokemon.shinyImage)!
     }
+
+    func onDisappear() {
+        selectedImageUrl = URL(string: pokemon.frontImage)!
+    }
 }

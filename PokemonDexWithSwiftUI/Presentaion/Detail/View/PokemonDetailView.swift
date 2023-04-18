@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
+    
     @ObservedObject var viewModel: PokemonDetailViewModel
 
     init(pokemon: PokemonModel) {
@@ -55,8 +56,10 @@ struct PokemonDetailView: View {
                         .background(Capsule().fill(Color.cyan))
                 }
             }
-
             Spacer()
+        }
+        .onDisappear {
+            viewModel.onDisappear()
         }
     }
 }
